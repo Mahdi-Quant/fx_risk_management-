@@ -2,10 +2,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_error
+
 # Load historical exchange rate data
-data = pd.read_excel("D:\SENIOR\FRM\Project\Historical rates alltime.xlsx")
+data = pd.read_excel("historical_rates.xlsx")
 data['Date'] = pd.to_datetime(data['date'])
 data.set_index('Date', inplace=True)
+
 # Calculate daily returns
 returns = data['EURTND'].pct_change().dropna()
 
